@@ -102,6 +102,7 @@ body {
 .product-price {
   color: #e74c3c;
   font-size: 1.2rem;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
@@ -226,8 +227,18 @@ body {
   background-color: #45a049;
 }
 
-.product-button.added-to-cart {
+.added-to-cart {
   background-color: grey; /* Grey when product is added */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
 }
 @media (max-width: 1200px) {
   .product-card {

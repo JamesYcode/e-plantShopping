@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { removeItem, updateQuantity } from './CartSlice';
 import './CartItem.css';
 
-const CartItem = ({ onContinueShopping }) => {
+const CartItem = ({ setAddedToCart, onContinueShopping }) => {
   const cart = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
 
@@ -26,6 +26,11 @@ const CartItem = ({ onContinueShopping }) => {
 
   const handleRemove = (item) => {
     dispatch(removeItem(item.name));
+    setAddedToCart((prevState) => {
+      const updatedState = { ...prevState };
+      delete updatedState[item.name]; // Remove item from disabledItems state
+      return updatedState;
+    });
   };
 
   const handleCheckoutShopping = (e) => {
